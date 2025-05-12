@@ -47,7 +47,11 @@ header .container { display: flex; justify-content: space-between; align-items: 
 header .logo img { max-height: 46px; vertical-align: middle; }
 header nav ul { display: flex; }
 header nav ul li { margin-left: 25px; }
-header nav ul li a { font-weight: 600; color: var(--neutral-dark); transition: color 0.3s ease; }
+header nav ul li a {
+    font-weight: 700; /* ITENS DO MENU EM NEGRITO MAIS FORTE */
+    color: var(--neutral-dark);
+    transition: color 0.3s ease;
+}
 header nav ul li a:hover { color: var(--accent-color); }
 .cta-principal.login-register-btn { background-color: var(--accent-color); color: var(--neutral-dark); padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: background-color 0.3s ease, color 0.3s ease; margin-left: 20px; white-space: nowrap; }
 .cta-principal.login-register-btn:hover { background-color: var(--accent-hover-color); color: var(--neutral-dark); }
@@ -68,9 +72,15 @@ header nav ul li a:hover { color: var(--accent-color); }
 .hero-image-placeholder { margin: 20px auto 30px auto; max-width: 550px; border-radius: 8px; overflow: hidden; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); }
 .hero-image-placeholder img { border-radius: 8px; display: block; width: 100%; }
 .hero-ctas { margin-top: 0; }
-.cta-secundario { background-color: var(--accent-color); color: var(--neutral-dark); padding: 12px 25px; border-radius: 5px; font-weight: bold; margin: 10px; display: inline-block; transition: background-color 0.3s ease, color 0.3s ease; }
+.cta-secundario {
+    background-color: var(--accent-color); color: var(--neutral-dark); padding: 14px 20px;
+    border-radius: 6px; font-weight: 600; margin: 10px 8px; display: inline-block;
+    text-align: center; min-width: 230px; box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    line-height: 1.4; border: 2px solid transparent; font-size: 0.95rem;
+}
 .cta-secundario.outlined { background-color: transparent; border: 2px solid var(--accent-color); color: var(--accent-color); }
-.cta-secundario:hover { background-color: var(--accent-hover-color); color: var(--neutral-dark); }
+.cta-secundario:hover { background-color: var(--accent-hover-color); color: var(--neutral-dark); transform: translateY(-2px); border-color: var(--accent-hover-color); }
 .cta-secundario.outlined:hover { background-color: var(--accent-color); color: var(--neutral-dark); }
 
 /* Seção Sobre Nós */
@@ -84,13 +94,22 @@ header nav ul li a:hover { color: var(--accent-color); }
 .sobre-nos-imagem { flex: 1.2; min-width: 320px; text-align: center; }
 .sobre-nos-imagem img { max-width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); }
 
-/* Seção de Benefícios (ID: funcionalidades) */
-#funcionalidades { background-color: #fff; }
-.benefits { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; text-align: center; }
-.benefit { flex-basis: calc(20% - 16px); padding: 15px; background-color: var(--neutral-light); border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
-.benefit .icon { font-size: 2.2rem; color: var(--secondary-color); margin-bottom: 12px; }
-.benefit h3 { font-size: 1.1rem; margin-bottom: 8px; min-height: 2.2em; display: flex; align-items: center; justify-content: center; }
-.benefit p { font-size: 0.9rem; line-height: 1.5; }
+/* Seção de Benefícios (Funcionalidades) */
+#funcionalidades { background-color: #fff; padding: var(--section-padding); }
+#funcionalidades h2 { font-family: var(--font-serif); font-size: 2.5rem; text-align: center; color: var(--neutral-dark); margin-bottom: 50px; }
+.benefits { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+.benefit {
+    flex-basis: calc(20% - 16px);
+    background-color: #f9f8fe; padding: 25px 15px;
+    border-radius: var(--card-border-radius); box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+    text-align: center; display: flex; flex-direction: column; align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 230px;
+}
+.benefit:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.09); }
+.benefit .icon { font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 18px; line-height: 1; }
+.benefit h3 { font-family: var(--font-sans); font-size: 1.1rem; font-weight: 600; color: var(--neutral-dark); margin-bottom: 10px; line-height: 1.3; }
+.benefit p { font-family: var(--font-sans); font-size: 0.85rem; line-height: 1.5; color: #555; flex-grow: 1; }
 
 /* Seção "Como Funciona" (Remodelada com Abas) */
 .how-it-works-section { background-color: var(--neutral-light); }
@@ -176,7 +195,11 @@ header nav ul li a:hover { color: var(--accent-color); }
 .plan-card-top { background-color: var(--plan-card-top-bg); padding: 30px 35px 25px 35px; border-top-left-radius: var(--card-border-radius); border-top-right-radius: var(--card-border-radius); text-align: center; }
 .plan-card-top h3 { font-family: var(--font-sans); color: var(--plan-card-accent-color); font-size: 1.7rem; font-weight: 600; margin-bottom: 10px; }
 .plan-card-top .price { font-family: var(--font-sans); color: var(--neutral-dark); font-size: 3.2rem; font-weight: 700; line-height: 1; margin-bottom: 0; }
-.plan-card-top .price span { font-family: var(--font-sans); font-size: 1rem; color: #777; font-weight: 400; margin-left: 5px; vertical-align: baseline; }
+.plan-card-top .price span { /* "/ano" */
+    font-family: var(--font-sans); font-size: 1rem; color: #555; /* Escurecido um pouco */
+    font-weight: 600; /* EM NEGRITO */
+    margin-left: 5px; vertical-align: baseline;
+}
 .plan-card-features { padding: 30px 35px 25px 35px; }
 .plan-card-features ul { list-style: none; padding-left: 0; margin-bottom: 30px; }
 .plan-card-features ul li { font-family: var(--font-sans); color: var(--text-color); font-size: 0.95rem; margin-bottom: 15px; display: flex; align-items: flex-start; line-height: 1.4; }
@@ -283,9 +306,7 @@ header nav ul li a:hover { color: var(--accent-color); }
     .sobre-nos-grid { gap: 30px; }
     .sobre-nos-texto h2 { font-size: 2rem; }
     .sobre-nos-texto p { font-size: 1rem; }
-    .step, .benefit { flex-basis: calc(50% - 10px); padding: 20px; }
-    .benefit h3, .step h3 { font-size: 1.2rem; min-height: 0; }
-    .benefit p, .step p { font-size: 0.95rem; }
+    .benefit { flex-basis: calc(33.333% - 14px); min-height: 210px; }
     .how-it-works-tabs { flex-wrap: wrap; }
     .tab-link { flex-basis: 50%; font-size: 0.9rem; padding: 15px 10px; }
     .tab-pane { flex-direction: column; gap: 30px; }
@@ -321,23 +342,23 @@ header nav ul li a:hover { color: var(--accent-color); }
     header nav.active { display: block; }
     header nav ul { flex-direction: column; padding: 0; }
     header nav ul li { margin-left: 0; margin-bottom: 0; text-align: left; }
-    header nav ul li a { display: block; padding: 15px 20px; border-bottom: 1px solid var(--neutral-medium); font-weight: 600; }
+    header nav ul li a { display: block; padding: 15px 20px; border-bottom: 1px solid var(--neutral-medium); font-weight: 700; } /* Menu items bold */
     header nav ul li:last-child a { border-bottom: none; }
     #hero .hero-headline, #hero .hero-headline-mobile, #hero .hero-headline-desktop { font-size: 2.4rem; }
     #hero .subtitulo { font-size: 0.95rem; max-width: 90%; margin-bottom: 20px;}
     .hero-image-placeholder { max-width: 90%; margin: 15px auto 25px auto; }
-    .steps, .benefits { flex-direction: column; align-items: center; }
-    .step, .benefit { flex-basis: auto; width: 90%; max-width: 400px; margin-bottom: 20px; }
-    .benefit h3, .step h3 { font-size: 1.3rem; min-height: 0; }
-    .benefit p, .step p { font-size: 1rem; }
+    .benefits { gap: 20px; }
+    .benefit { flex-basis: calc(50% - 10px); min-height: auto; padding: 20px 15px; }
+    .benefit .icon { font-size: 2.2rem; margin-bottom: 12px; }
+    .benefit h3 { font-size: 1.1rem; }
+    .benefit p { font-size: 0.85rem; }
     .section-title-exemplos, .section-title-depoimentos, .contact-modal-title, .section-title-how-it-works { font-size: 2rem; }
     .section-subtitle-exemplos, .section-subtitle-depoimentos, .contact-modal-subtitle, .section-subtitle-how-it-works { font-size: 0.9rem; max-width: 90%;}
     .how-it-works-tabs { flex-direction: column; border-radius: 0; }
-    .tab-link { border-bottom: 1px solid #ddd; border-top-left-radius: 0; border-top-right-radius: 0; }
+    .tab-link { border-bottom: 1px solid #ddd; }
     .tab-link.active { border-left: 4px solid var(--secondary-color); border-bottom-color: transparent; }
-    .tab-link:first-child.active { border-top-left-radius: var(--card-border-radius); border-top-right-radius: var(--card-border-radius); } /* Mantém cantos superiores no container */
-    .tab-link:last-child.active { /* border-bottom-left-radius: var(--card-border-radius); */ }
-    .how-it-works-tabs-container { border-radius: var(--card-border-radius); } /* Para o container geral */
+    .tab-link:first-child.active { border-top-left-radius: var(--card-border-radius); border-top-right-radius: var(--card-border-radius); }
+    .how-it-works-tabs-container { border-radius: var(--card-border-radius); }
     .how-it-works-content-area { padding: 25px 20px; }
     .memorial-gallery { flex-direction: column; align-items: center; gap: 25px; }
     .memorial-example-link { flex-basis: auto; width: 90%; max-width: 350px; margin-bottom: 0; }
@@ -356,7 +377,7 @@ header nav ul li a:hover { color: var(--accent-color); }
     .plan-card-top { padding: 25px 20px 20px 20px; }
     .plan-card-top h3 { font-size: 1.5rem; }
     .plan-card-top .price { font-size: 2.8rem; }
-    .plan-card-top .price span { font-size: 0.9rem; }
+    .plan-card-top .price span { font-size: 0.9rem; font-weight: 600; } /* /ano bold */
     .plan-card-features { padding: 25px 20px 20px 20px; }
     .plan-card-features ul li { font-size: 0.9rem; margin-bottom: 12px;}
     .plan-card-features ul li .fa-check { font-size: 1rem; margin-top: 1px;}
@@ -375,7 +396,6 @@ header nav ul li a:hover { color: var(--accent-color); }
     .social-icons { text-align: left; margin-top: 8px; }
     .social-icons a { font-size: 1.2rem; margin-right: 10px; }
     .copyright { padding-top: 20px; margin-top: 20px; font-size: 0.8rem; }
-    /* .whatsapp-float removido */
 }
 
 @media (max-width: 480px) { /* Small Mobile */
@@ -385,10 +405,12 @@ header nav ul li a:hover { color: var(--accent-color); }
     #hero .subtitulo { font-size: 0.9rem; }
     header .logo img { max-height: 31px; }
     .cta-principal.login-register-btn { padding: 7px 10px; font-size: 0.8rem; }
-    .cta-secundario { padding: 10px 15px; font-size: 0.9rem; }
-    .benefit h3, .step h3 { font-size: 1.2rem; }
-    .benefit p, .step p { font-size: 0.9rem; }
-    .benefit .icon, .step .icon { font-size: 2rem; }
+    .cta-secundario { min-width: auto; width: 80%; max-width: 280px; margin: 5px auto; font-size: 0.9rem;}
+    .hero-ctas { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .benefit { flex-basis: 100%; max-width: 320px; margin-left: auto; margin-right: auto; }
+    .benefit .icon { font-size: 2.2rem; }
+    .benefit h3 { font-size: 1.15rem; }
+    .benefit p { font-size: 0.9rem; }
     .plan-card.styled-plan-card { max-width: 95%; }
     .plan-card-top h3 { font-size: 1.4rem; }
     .plan-card-top .price { font-size: 2.5rem; }
