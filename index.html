@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Preserve memórias para sempre com o Revive Memorial. Uma forma digital e interativa de honrar a memória de seus entes queridos.">
     <meta name="keywords" content="memorial digital, homenagem póstuma, QR code túmulo, lembranças online, reviver memórias">
-    <title>Revive Memorial - Preserve Memórias Para Sempre</title>
+    <title>Revive Memorial - Construa um Memorial Online em Minutos</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,9 +41,9 @@
         <!-- 2. Seção Hero -->
         <section id="hero">
             <div class="container hero-content">
-                <h1 class="hero-headline hero-headline-mobile">Preserve memórias para sempre com o Revive Memorial</h1>
-                <h1 class="hero-headline hero-headline-desktop">Preserve memórias para sempre<br>com o Revive Memorial</h1>
-                <p class="subtitulo">Uma forma digital e interativa de honrar a memória de seus entes queridos.</p>
+                <h1 class="hero-headline hero-headline-mobile">Construa um Memorial Online em Minutos.</h1>
+                <h1 class="hero-headline hero-headline-desktop">Construa um Memorial Online em Minutos.</h1>
+                <p class="subtitulo">Transforme Lembranças em um Legado Digital.</p>
                 <div class="hero-image-placeholder">
                     <img src="https://i.postimg.cc/3NybNMQr/pexels-cottonbro-8848784.jpg/550x350/E0E0E0/757575?text=Imagem+Central+do+Hero+(550x350)" alt="Mãos segurando fotos sobre um álbum Revive Memorial">
                 </div>
@@ -70,7 +71,7 @@
             </div>
         </section>
 
-        <!-- SEÇÃO DE BENEFÍCIOS -->
+        <!-- SEÇÃO DE BENEFÍCIOS (ID: funcionalidades) -->
         <section id="funcionalidades">
             <div class="container">
                 <h2>Benefícios</h2>
@@ -127,19 +128,15 @@
                     </div>
 
                     <div class="how-it-works-content-area">
-                        <!-- Conteúdo do Passo 1 -->
                         <div id="passo1-content" class="tab-pane active">
                             <div class="tab-pane-text">
                                 <h3>1. Crie sua conta</h3>
                                 <p>Registre-se de forma rápida e segura para começar a preservar suas memórias mais preciosas.</p>
-                                <!-- <a href="#" class="btn-details">Ver Detalhes</a> -->
                             </div>
                             <div class="tab-pane-image">
                                 <img src="https://i.postimg.cc/nzhSNYkQ/login.png" alt="Criação de conta Revive Memorial">
                             </div>
                         </div>
-
-                        <!-- Conteúdo do Passo 2 -->
                         <div id="passo2-content" class="tab-pane">
                             <div class="tab-pane-text">
                                 <h3>2. Adicione Conteúdo</h3>
@@ -149,8 +146,6 @@
                                  <img src="https://i.postimg.cc/Prp9tykW/criar-memo.png" alt="Adicionando conteúdo ao memorial digital">
                             </div>
                         </div>
-
-                        <!-- Conteúdo do Passo 3 -->
                         <div id="passo3-content" class="tab-pane">
                             <div class="tab-pane-text">
                                 <h3>3. Personalize</h3>
@@ -160,12 +155,10 @@
                                 <img src="https://i.postimg.cc/ht8Cj3Zd/Memorial.png" alt="Personalizando o memorial">
                             </div>
                         </div>
-
-                        <!-- Conteúdo do Passo 4 -->
                         <div id="passo4-content" class="tab-pane">
                             <div class="tab-pane-text">
                                 <h3>4. Receba o QR Code</h3>
-                                <p>Obtenha um QR code exclusivo para o memorial, pronto para ser aplicado no local de descanso.</p>
+                                <p>Obtenha um QR code exclusivo assim que validar a página do memorial, você pode baixar o qr code e compartilhar.  Em 10 dias receberá seu QR code físico no endereço cadastrado, pronto para ser aplicado no local de descanso do ente querido.</p>
                             </div>
                             <div class="tab-pane-image">
                                <img src="https://i.postimg.cc/tgHLvxwh/memo.png" alt="Placa com QR code Revive Memorial">
@@ -478,7 +471,12 @@
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
+                let targetId = this.getAttribute('href');
+
+                // Lógica específica para o link "Funcionalidades" - SEMPRE redireciona para "Como Funciona"
+                if (targetId === "#funcionalidades") {
+                    targetId = "#como-funciona";
+                }
 
                 if (targetId === "#pagina-contato") {
                     e.preventDefault();
@@ -492,6 +490,11 @@
 
                 if (targetId === "#inicio") {
                     e.preventDefault();
+                    if (navPrincipal.classList.contains('active')) {
+                        navPrincipal.classList.remove('active');
+                        body.classList.remove('no-scroll');
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    }
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                     return;
                 }
